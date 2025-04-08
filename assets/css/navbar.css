@@ -1,191 +1,300 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
 
-
 .fixed-nav-bar {
+    position: relative;
     top: 0;
-    max-width: 100vw;
-    margin: auto;
-
+    width: calc(100% - 30px);
+    max-width: 1400px;
+    margin: 15px auto;
     letter-spacing: 2px;
     font-size: 22px;
-    left: 0;
-    right: 0;
     min-height: 10vh;
-    padding: 0 25px;
+    padding: 0 20px;
     box-sizing: border-box;
-    background-color: #1c1c1c;
-    -webkit-backdrop-filter: var(--background-filter);
-    backdrop-filter: var(--background-filter);
-    transition: 0.35s ease;
+    background-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    transition: all 0.3s ease;
     border-radius: 5px;
-    width: fill;
-    margin-top: 15px;
-    z-index: 100;
-    position: absolute;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    overflow: visible;
+}
+
+/* Add sticky behavior only for home page */
+.fixed-nav-bar.sticky-nav {
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+}
+
+.fixed-nav-bar.scrolled {
+    background-color: rgba(28, 28, 28, 0.35);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    backdrop-filter: blur(12px) saturate(180%);
+    border-radius: 50px;
+    padding: 10px 35px;
+    gap: 0px;
+    min-height: auto;
+    justify-content: center;
+    width: auto;
+    min-width: min-content;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Left section - Logo */
+.fixed-nav-bar-left {
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 1001;
+    padding-left: 20px;
 }
 
 .fixed-nav-bar .icon:hover {
-    transform: translateY(-55%) scale(1.03);
-    font-weight: 800;
+    transform: scale(1.03);
 }
 
 .fixed-nav-bar .icon {
-    position: absolute;
-    float: left;
-    /* text-transform: uppercase; */
-    font-size: 30px;
+    display: flex;
+    align-items: center;
     font-family: 'Exo 2', sans-serif;
     cursor: pointer;
     color: var(--text);
     font-weight: 600;
-    margin-left: 5px;
-    font-style: normal;
     text-decoration: none;
     transition: all 0.2s ease;
-    height: 0.5vh;
-    width: 0.5vh;
-    top: 18%;
 }
 
+/* Center section - Navigation */
+.fixed-nav-bar-center {
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.scrolled .fixed-nav-bar-center {
+    gap: 20px;
+}
+
+/* Right section - Discord */
 .fixed-nav-bar-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    /* text-transform: uppercase; */
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+
+/* Update the general navbar-link animations to not affect the Discord icon */
+.navbar-link {
+    padding: 10px 20px;
     font-size: 18px;
+    cursor: pointer;
     color: #fff;
     font-weight: 600;
-    right: 2%;
-}
-
-.fixed-nav-bar-right .navbar-link {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    border-radius: 15px;
-    margin-left: 10px;
-    /* text-transform: uppercase; */
-    font-size: 2.5vh;
-    cursor: pointer;
-    color: #fff;
-    font-weight: 800;
-    right: 2%;
     font-family: 'Exo 2', sans-serif;
-    font-style: normal;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     transition: all 0.2s ease;
-    transform: translateX(0%);
+    border-radius: 50px;
 }
 
-
-.fixed-nav-bar-right .navbar-link:hover {
-    background: rgba(0, 0, 0, 0.5);
-}
-
-@media (orientation: portrait) {
-    .fixed-nav-bar-right .navbar-link {
-        margin-left: 10px;
-        /* text-transform: uppercase; */
-        font-size: 2.5vw;
-        cursor: pointer;
-        color: #fff;
-        font-weight: 800;
-        right: 2%;
-        font-family: 'Exo 2', sans-serif;
-        font-style: normal;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        transform: translateX(0%);
-    }
-    .fixed-nav-bar-right .navbar-link:hover {
-        cursor: pointer;
-        font-weight: 800;
-        font-family: 'Exo 2', sans-serif;
-        font-style: normal;
-        font-size: 3vw;
-        transform: translateX(-20%);
-    }
-}
-
-.fixed-nav-bar-right .navbar-link:hover {
-    cursor: pointer;
-    font-weight: 800;
-    font-family: 'Exo 2', sans-serif;
-    font-style: normal;
-    font-size: 3vh;
-    transform: translateX(-20%);
+.navbar-link:hover {
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .navbar-icon {
     color: #fff !important;
-    margin-right: 5px;
     transition: all 0.2s ease;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.navbar-link {
-    margin-right: 5px;
-    font-size: 3vh;
+.navbar-link:hover .navbar-icon {
+    color: rgba(255, 255, 255, 0.8) !important;
 }
 
-.material-symbols-outlined {
-    font-variation-settings: 'FILL'0, 'wght'400, 'GRAD'0, 'opsz'48;
+/* Active link styles */
+.navbar-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-.navbar-link:hover>.settings-icon {
-    animation: spin 0.5s;
-    animation-timing-function: cubic-bezier(0, 1.04, 0.91, 0.99);
+/* Remove the scrolled state padding changes */
+.scrolled .navbar-link {
+    padding: 10px 20px;
 }
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
- 
-
 
 #HYimg {
-    min-width: 4vw;
-   display: flex;
-   flex-direction: row;
-   align-items: center;
+    height: 55px;
+    width: 55px;
+    aspect-ratio: 1;
+    object-fit: contain;
+    transition: all 0.3s ease;
 }
 
-@media (min-width: 1000px) {
-    #HYimg {
-        width: 3.5vw; /* Adjust as needed */
-    }
+/* Scrolled state height adjustments */
+.fixed-nav-bar.scrolled:not(.sticky-nav) #HYimg {
+    height: 45px;
+    width: 45px;
 }
 
-@media (max-width: 1200px) {
-    #HYimg {
-        width: 3.5vw; /* Adjust as needed */
-    }
+/* Mobile Menu Styles */
+.mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(28, 28, 28, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    transform: translateY(-100%);
+    transition: transform 0.15s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-menu.active {
+    transform: translateY(0);
+}
+
+.mobile-menu-content {
+    position: relative;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 100px; /* Space for the navbar */
+    padding-left: 40px; /* Align with the logo */
+}
+
+.mobile-menu-close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 2001;
+}
+
+.mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.mobile-menu .navbar-link {
+    font-size: 24px;
+    padding: 15px 20px;
+}
+
+.body.menu-open {
+    overflow: hidden;
 }
 
 @media (max-width: 768px) {
-    #HYimg {
-        width: 3vw; /* Adjust as needed */
-    }
-}
-
-@media (orientation: portrait) {
-    #HYimg {
-        width: 4vw;
-        padding-top: 10vh;
-        margin-bottom: 1vh;
-    }
-}
-
-
-@media only screen and (min-width: 700px) {
     .fixed-nav-bar {
-        display: block !important;
+        padding: 0 30px;
+        width: calc(100% - 30px);
+        gap: 20px;
+        margin: 0 auto;
+        border-radius: 0;
+        top: 0;
+        background-color: rgba(28, 28, 28, 0.45);
+        border: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
-    header {
+    
+    .fixed-nav-bar-left {
+        padding-left: 0;
+    }
+    
+    .fixed-nav-bar-right {
+        padding-right: 0;
+    }
+    
+    /* Make navbar stick to top on mobile when sticky */
+    .fixed-nav-bar.sticky-nav {
+        top: 0;
+        margin: 0 auto;
+        border-radius: 0;
+        box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+    }
+    
+    .fixed-nav-bar-center {
         display: none;
     }
+    
+    .desktop-only {
+        display: none;
+    }
+    
+    .mobile-menu-button {
+        display: block;
+    }
+    
+    #HYimg {
+        height: 55px;
+    }
+    
+    header {
+        display: none !important;
+    }
 
+    .navbar-link {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .navbar-icon {
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .fixed-nav-bar {
+        display: flex !important;
+    }
+    
+    header {
+        display: none !important;
+    }
+    
+    .fixed-nav-bar-center {
+        display: flex !important;
+    }
+    
+    .mobile-menu-button {
+        display: none !important;
+    }
 }

@@ -47,44 +47,38 @@
 
 <body>
 
-  <div style="background-color: transparent !important;" id="fixed-nav-bar" class="fixed-nav-bar">
-    <div class="fixed-nav-bar-container ">
-      <a class="icon" style="word-wrap:initial" href="/">
-        <img alt="nav" id="HYimg" src="/app.png">
-      </a>
-    </div>
-    <div style="color: inherit;" class="fixed-nav-bar-right">
-      <a class="navbar-link" href="/library.html">
-        <i class="fa-solid fa-gamepad navbar-icon"></i>Games </a>
-        <a class="navbar-link" href="/settings.html">
-          <i class="fa-solid fa-gear settings-icon"></i>Settings </a>
-          <a class="navbar-link" href="/staticproxy/index.html">
-            <i class="fa-solid fa-dice navbar-icon"></i>Indium Lite </a>
-            <a class="navbar-link" href="/ai/index.html">
-              <i class="fa-brands fa-android navbar-icon"></i>Intelligence </a>
-    </div>
-  </div>
-  <header class="header">
-    <nav data-bs-theme="dark" style="display: block;" class="navbar navbar-expand-lg bg-body-tertiary">
-      <div data-bs-theme="dark" class="container-fluid">
-        <a class="navbar-brand" href="#">Hypackel</a>
-        <button data-bs-theme="dark" class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/library.html">Games</a>
-            </li>
-          </ul>
-        </div>
+  <div id="fixed-nav-bar" class="fixed-nav-bar sticky-nav" style="">
+      <!-- Left: Logo -->
+      <div class="fixed-nav-bar-left" style="">
+          <a class="icon" href="/">
+              <img alt="nav" id="HYimg" src="/app.png" width="55" height="55" fetchpriority="high" loading="eager" decoding="async">
+          </a>
       </div>
-    </nav>
-  </header>
+      
+      <!-- Center: Navigation Links -->
+      <div class="fixed-nav-bar-center">
+          <a class="navbar-link active" href="javascript:void(0)" onclick="if(window.location.pathname === '/library.html') { window.scrollTo({top: 0, behavior: 'smooth'}); } else { window.location.href='/library.html'; }">
+              <i class="fa-solid fa-gamepad navbar-icon"></i>&nbsp;Games
+          </a>
+          <!-- <a class="navbar-link" href="/static/index.html">
+            <i class="fa-solid fa-dice navbar-icon"></i>&nbsp;Proxy
+        </a> -->
+          <a class="navbar-link" href="/settings.html">
+              <i class="fa-duotone fa-gear navbar-icon"></i> Settings
+          </a>
+      </div>
+      
+      <!-- Right: Discord Icon (Desktop) / Hamburger (Mobile) -->
+      <div class="fixed-nav-bar-right" style="">
+          <a class="navbar-link desktop-only" href="https://discord.gg/xjMnZn3R5f" target="_blank">
+              <i class="fa-brands fa-discord navbar-icon"></i>
+          </a>
+          <button class="mobile-menu-button" onclick="toggleMobileMenu()">
+              <i class="fa-solid fa-bars navbar-icon"></i>
+          </button>
+      </div>
+  </div>
+  <script src="/assets/js/navbar-scroll.js"></script>
   <style>
     /* Reset margin and padding for html and body */
     html,

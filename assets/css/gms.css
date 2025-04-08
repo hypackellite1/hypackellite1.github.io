@@ -74,6 +74,7 @@ body {
   max-width: 300px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
   transition: 0.7s;
+  cursor: pointer;
 }
 
 .app-list {
