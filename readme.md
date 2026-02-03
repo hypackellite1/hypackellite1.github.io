@@ -33,10 +33,11 @@ Thank you to all of these amazing people for helping work on this project!
 
 If Hypackel Lite is blocked but .github.io domains are unblocked you can make your own copy:
 
-1. Scroll up and click fork
-2. click settings and rename the the repository to `YOURUSERNAME.github.io`. Replace your username with your actual github username
-3. click pages and change it to deploy from a branch
-4. it should give you a url in a few minutes. if not then go to the actions tab and if workflows are not enabled, click to enable them
+1. Make a Github Account
+2. Scroll up and click fork and then confirm
+3. click settings and rename the the repository to `YOURUSERNAME.github.io`. Replace your username with your actual github username
+5. click pages and change it to deploy from a branch
+6. it should give you a url in a few minutes. if not then go to the actions tab and if workflows are not enabled, click to enable them
 
 ## Stats
 
